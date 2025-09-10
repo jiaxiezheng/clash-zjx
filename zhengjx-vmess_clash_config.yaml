@@ -1,0 +1,129 @@
+proxies:
+- name: vm-ws-dmit-dayu
+  type: vmess
+  server: 154.17.1.10
+  port: 8880
+  uuid: 709d3283-e944-4d39-a3e1-9636996d95f1
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /709d3283-e944-4d39-a3e1-9636996d95f1-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-TK-B
+  type: vmess
+  server: 154.17.3.49
+  port: 2095
+  uuid: 32f33f3b-5fe7-4730-aae2-a6dabcc88761
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /32f33f3b-5fe7-4730-aae2-a6dabcc88761-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-PC
+  type: vmess
+  server: 154.26.180.172
+  port: 8880
+  uuid: fb2be06f-b34c-4ea3-9264-5541b4b8414c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /fb2be06f-b34c-4ea3-9264-5541b4b8414c-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-ABJ-TK-1
+  type: vmess
+  server: 154.17.20.125
+  port: 2086
+  uuid: bcbfbb01-1d31-485e-ade5-cc7c9aa564d2
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /bcbfbb01-1d31-485e-ade5-cc7c9aa564d2-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-fxo98VcOKu
+  type: vmess
+  server: 154.26.191.91
+  port: 2052
+  uuid: 6ae832cd-b342-41dd-86a9-c28b36ca6725
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /6ae832cd-b342-41dd-86a9-c28b36ca6725-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-host
+  type: vmess
+  server: 154.21.82.151
+  port: 2082
+  uuid: 86be4a88-0b57-49d6-9ed7-140267380c36
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /86be4a88-0b57-49d6-9ed7-140267380c36-vm
+    headers:
+      Host: www.bing.com
+
+- name: vm-ws-DMIT-JP
+  type: vmess
+  server: 103.117.103.235
+  port: 2082
+  uuid: 97ef06e6-f9d2-4d7f-a88d-dd464d8c2a7a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /97ef06e6-f9d2-4d7f-a88d-dd464d8c2a7a-vm
+    headers:
+      Host: www.bing.com
+
+proxy-groups:
+- name: AUTO
+  type: select
+  proxies:
+  - vm-ws-dmit-dayu
+  - vm-ws-DMIT-TK-B
+  - vm-ws-DMIT-PC
+  - vm-ws-DMIT-ABJ-TK-1
+  - vm-ws-DMIT-fxo98VcOKu
+  - vm-ws-DMIT-host
+  - vm-ws-DMIT-JP
+  - DIRECT
+
+rules:
+- GEOIP,CN,DIRECT
+- MATCH,AUTO
