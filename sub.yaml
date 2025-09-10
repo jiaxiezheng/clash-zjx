@@ -1,0 +1,25 @@
+proxies:
+- name: vm-ws-DMIT-k-sz
+  type: vmess
+  server: 154.31.117.132
+  port: 2052
+  uuid: b452f191-9edc-48bd-8e8f-efe2e1af154c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /b452f191-9edc-48bd-8e8f-efe2e1af154c-vm
+    headers:
+      Host: www.bing.com
+proxy-groups:
+- name: AUTO
+  type: select
+  proxies:
+  - vm-ws-DMIT-k-sz
+  - DIRECT
+rules:
+- GEOIP,CN,DIRECT
+- MATCH,AUTO
